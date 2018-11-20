@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
+// import axios from 'axios;
 import store from './store/index';
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction } from './store/actionCreators';
+import { getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList } from './store/actionCreators';
 import TodoListUI from './TodoListUI'
 
 class TodoList extends Component {
@@ -23,13 +24,11 @@ class TodoList extends Component {
     }
 
     handleStoreChange() {
-        console.log('store change');
         // 重新从store中取数据
         this.setState(store.getState());
     }
 
     handleInputChange(event) {
-        console.log(event.target.value);
         const action = getInputChangeAction(event.target.value);
         store.dispatch(action);
     }
@@ -45,6 +44,17 @@ class TodoList extends Component {
         const action = getDeleteItemAction(index);
         console.log(action.value);
         store.dispatch(action);
+    }
+
+    componentDidMount() {
+        const action = getTodoList();
+        store.dispatch(action);
+        // axios.get('../mock/test.json')
+        //     .then((res) => {
+        //         const data = res.data;
+        //         const action = initListAction(data);
+        //         store.dispatch(action);
+        //     })
     }
 
     render() {

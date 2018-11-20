@@ -1,4 +1,6 @@
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes'
+import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION } from './actionTypes'
+import axios from 'axios';
+
 
 // 管理action
 
@@ -17,3 +19,19 @@ export const getDeleteItemAction = (value) => ({
     value
 });
 
+export const initListAction = (data) => ({
+    type: INIT_LIST_ACTION,
+    data
+});
+
+// 异步获取数据
+export const getTodoList = () => {
+    return (dispatch) => {
+        axios.get('../../mock/test.json')
+            .then((res) => {
+                const data = res.data;
+                const action = initListAction(data);
+                dispatch(action);
+            });
+    }
+}

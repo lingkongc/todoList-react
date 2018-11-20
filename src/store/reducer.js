@@ -1,4 +1,9 @@
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM } from './actionTypes';
+import {
+    CHANGE_INPUT_VALUE,
+    ADD_TODO_ITEM,
+    DELETE_TODO_ITEM,
+    INIT_LIST_ACTION
+} from './actionTypes';
 // state是store中存储的数据
 const defaultState = {
     inputValue: '',
@@ -34,6 +39,12 @@ export default (state = defaultState, action) => {
         const newState = JSON.parse(JSON.stringify(state));
         // 只需删除一项 spilce比filter性能好一些
         newState.list.splice(action.value, 1);
+        return newState;
+    }
+
+    if (action.type === INIT_LIST_ACTION) {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.list = action.data;
         return newState;
     }
     return state;
