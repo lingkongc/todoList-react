@@ -2,17 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class TodoList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(e){
-
-  }
-  
   render() {
     return (
       <div>
@@ -20,9 +9,9 @@ class TodoList extends Component {
           <input
             type="text"
             value={this.props.inputValue}
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
           />
-          <button onClick={this.handleClick}>提交</button>
+          <button onClick={this.props.handleClick}>提交</button>
         </div>
         <ul>
           <li>Dell</li>
@@ -39,8 +28,21 @@ const mapStateToProps = state => {
   };
 };
 
+// store.dispatch,props
+const mapDispatchToProps = dispatch => {
+  return {
+    handleInputChange(e) {
+      const action = {
+        type: "change_input_value",
+        value: e.target.value
+      };
+      dispatch(action);
+    }
+  };
+};
+
 // todolist和store做链接
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(TodoList);

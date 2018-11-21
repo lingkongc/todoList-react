@@ -1,8 +1,13 @@
 const defaultState = {
-    inputValue: 'Hello Redux',
-    list: []
-}
+  inputValue: "Hello Redux",
+  list: []
+};
 
 export default (state = defaultState, action) => {
-    return state;
-}
+  if (action.type === "change_input_value") {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.inputValue = action.value;
+    return newState;
+  }
+  return state;
+};
