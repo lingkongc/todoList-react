@@ -1,40 +1,45 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
-class TodoList extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-          <input
-            type="text"
-            value={this.props.inputValue}
-            onChange={this.props.handleInputChange}
-          />
-          <button onClick={this.props.handleClick}>提交</button>
-        </div>
-        <ul>
-          <li>Dell</li>
-        </ul>
-      </div>
-    );
-  }
-}
+const TodoList = props => (
+  <div>
+    <div>
+      <input
+        type="text"
+        value={props.inputValue}
+        onChange={props.handleInputChange}
+      />
+      <button onClick={props.handleClick}>提交</button>
+    </div>
+    <ul>
+      {
+        props.list.map(item => (
+          <li>{item}</li>
+        ))
+      }
+    </ul>
+  </div>
+)
 
 // 将state映射到props
-const mapStateToProps = state => {
-  return {
-    inputValue: state.inputValue
-  };
-};
+const mapStateToProps = state => ({
+  inputValue: state.inputValue,
+  list: state.list
+});
 
 // store.dispatch,props
 const mapDispatchToProps = dispatch => {
   return {
     handleInputChange(e) {
       const action = {
-        type: "change_input_value",
+        type: 'change_input_value',
         value: e.target.value
+      };
+      dispatch(action);
+    },
+    handleClick(e) {
+      const action = {
+        type: 'add_item'
       };
       dispatch(action);
     }
