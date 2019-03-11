@@ -1,19 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import TodoList from "./TodoList.js";
+import React from 'react'
+import {render} from 'react-dom'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import rootReducer from './reducers'
+import App from './components/App'
 
-import { Provider } from "react-redux";
-import store from "./store";
+const store = createStore(rootReducer)
 
-const App = () => (
-  <Provider store={store}>
-    <TodoList />
-  </Provider>
-);
-
-ReactDOM.render(<App />, document.getElementById("root"));
-
-// HMR
-if (module.hot) {
-  module.hot.accept();
-}
+render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root')
+)
