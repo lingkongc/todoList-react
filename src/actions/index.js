@@ -1,7 +1,7 @@
 import {
-    ADD_TODO,
+    TODO_ADD,
     SET_VISIBILITY_FILTER,
-    TOGGLE_TODO,
+    TODO_TOGGLE,
 } from "./actionTypes";
 
 // action创建函数 传参返回一个新的action
@@ -10,7 +10,7 @@ let nextTodoId = 0
 
 // 传入text id+1 添加todo项目
 export const addTodo = text => ({
-    type: ADD_TODO,
+    type: TODO_ADD,
     id: nextTodoId++,
     text
 });
@@ -23,7 +23,7 @@ export const setVisibilityFilter = filter => ({
 
 // 切换对应id的todo
 export const toggleTodo = id => ({
-    type: TOGGLE_TODO,
+    type: TODO_TOGGLE,
     id
 });
 
