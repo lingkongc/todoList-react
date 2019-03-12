@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Link = ({ active, children, onClick }) => (
+// 带有回调的按钮
+
+const Link = ({active, children, onClick}) => (
     <button
         onClick={onClick}
         disabled={active}

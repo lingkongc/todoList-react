@@ -2,10 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, toggleTodo }) => (
+// 用户显示 todos 列表
+// todos 数组  {text,completed}
+
+const TodoList = ({todos, toggleTodo}) => (
     <ul>
         {todos.map(todo => (
-            <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
+            <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)}/>
         ))}
     </ul>
 )

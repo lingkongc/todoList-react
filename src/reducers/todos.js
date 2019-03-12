@@ -1,3 +1,4 @@
+// 这里传入的是state.todos
 const todos = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':

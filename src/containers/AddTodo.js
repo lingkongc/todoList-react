@@ -1,6 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {addTodo} from '../actions'
+import React from 'react';
+import {connect} from 'react-redux';
+import {addTodo} from '../actions';
+
+// 混合容器 将展示层和逻辑放在一起
 
 const AddTodo = ({dispatch}) => {
     let input
@@ -22,6 +24,6 @@ const AddTodo = ({dispatch}) => {
             </form>
         </div>
     )
-}
+};
 
-export default connect()(AddTodo)
+export default connect()(AddTodo);

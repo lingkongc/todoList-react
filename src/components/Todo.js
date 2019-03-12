@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// 单个todo项
+// 传入三个props
+
 const Todo = ({onClick, completed, text}) => (
     <li
         onClick={onClick}
