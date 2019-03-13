@@ -3,6 +3,7 @@ import {
     TODO_TOGGLE
 } from "../actions/actionTypes";
 
+
 // 这里传入的是state.todos
 const todoReducer = (state = [], action) => {
     switch (action.type) {
@@ -16,19 +17,13 @@ const todoReducer = (state = [], action) => {
 }
 
 function applyAddTodo(state, action) {
-    return [
-        ...state,
-        {
-            id: action.id,
-            text: action.text,
-            completed: false
-        }
-    ];
+    const todo = {...action.todo, completed: false};
+    return [...state, todo];
 }
 
 function applyToggleTodo(state, action) {
     return state.map(todo =>
-        todo.id === action.id
+        todo.id === action.todo.id
             ? {...todo, completed: !todo.completed}
             : todo
     );

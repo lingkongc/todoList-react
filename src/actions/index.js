@@ -1,30 +1,28 @@
 import {
     TODO_ADD,
     FILTER_SET,
-    TODO_TOGGLE, NOTIFICATION_SHOW, NOTIFICATION_HIDE,
+    TODO_TOGGLE,
+    NOTIFICATION_SHOW,
+    NOTIFICATION_HIDE,
 } from "./actionTypes";
 
-// action创建函数 传参返回一个新的action
-
-let nextTodoId = 0
+// action creators
 
 // 传入text id+1 添加todo项目
-export const doAddTodo = text => ({
+export const doAddTodo = (id, name) => ({
     type: TODO_ADD,
-    id: nextTodoId++,
-    text
-});
-
-//
-export const doSetFilter = filter => ({
-    type: FILTER_SET,
-    filter
+    todo: {id, name}
 });
 
 // 切换对应id的todo
 export const doToggleTodo = id => ({
     type: TODO_TOGGLE,
-    id
+    todo: {id}
+});
+
+export const doSetFilter = filterType => ({
+    type: FILTER_SET,
+    filterType
 });
 
 
@@ -41,12 +39,5 @@ export const doHideNotification = id => {
         type: NOTIFICATION_HIDE,
         id
     }
-}
-
-// 其他常量
-export const VisibilityFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
 

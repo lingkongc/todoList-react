@@ -1,13 +1,13 @@
 import React from 'react';
-import Footer from './Footer';
-import AddTodo from '../containers/AddTodo';
-import ConnectTodoList from '../containers/ConnectTodoList';
+import ConnectedTodoList from '../containers/ConnectedTodoList';
+import ConnectedTodoCreate from '../containers/ConnectedTodoCreate';
+import ConnectedFilter from '../containers/ConnectedFilter';
 
 const App = () => (
     <div>
-        <AddTodo/>
-        <ConnectTodoList/>
-        <Footer/>
+        <ConnectedTodoCreate/>
+        <ConnectedTodoList/>
+        <ConnectedFilter/>
     </div>
 );
 

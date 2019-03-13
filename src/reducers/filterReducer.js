@@ -13,7 +13,7 @@ const filterReducer = (state = 'SHOW_ALL', action) => {
 }
 
 function applySetFilter(state, action) {
-    return action.filter;
+    return action.filterType;  // 改变state的filter属性
 }
 
 export default filterReducer;

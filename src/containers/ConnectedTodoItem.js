@@ -6,5 +6,5 @@ const mapDispatchToProps = dispatch => ({
     onToggleTodo: id => dispatch(doToggleTodo(id))
 });
 
-const ConnectTodoItem = connect(null, mapDispatchToProps)(TodoItem);
-export default ConnectTodoItem;
+const ConnectedTodoItem = connect(null, mapDispatchToProps)(TodoItem);
+export default ConnectedTodoItem;
