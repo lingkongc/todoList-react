@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Todo from './Todo'
+import TodoItem from './TodoItem'
+import ConnectTodoItem from "../containers/ConnectTodoItem";
 
 // 用户显示 todos 列表
 // todos 数组  {text,completed}
 
-const TodoList = ({todos, toggleTodo}) => (
+const TodoList = ({todos}) => (
     <ul>
-        {todos.map(todo => (
-            <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)}/>
-        ))}
+        {todos.map(todo =>
+            <ConnectTodoItem key={todo.id} todo={todo}/>
+        )}
     </ul>
 )
 
@@ -21,7 +22,6 @@ TodoList.propTypes = {
             text: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
-    toggleTodo: PropTypes.func.isRequired
 }
 
 export default TodoList

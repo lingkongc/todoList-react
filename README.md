@@ -9,7 +9,7 @@ npm install --save-dev redux-devtools
 state
 ```
 {
-  visibilityFilter: 'SHOW_ALL',
+  filter: 'SHOW_ALL',
   todos: [
     {
       text: 'Consider using Redux',

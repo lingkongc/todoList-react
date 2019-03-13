@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {toggleTodo} from '../actions'
+import {doToggleTodo} from '../actions'
 import TodoList from '../components/TodoList'
 
 const getVisibleTodos = (todos, filter) => {
@@ -16,15 +16,10 @@ const getVisibleTodos = (todos, filter) => {
 
 // 将state映射到props中，这里传入的是todos
 const mapStateToProps = state => ({
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
+    todos: getVisibleTodos(state.todos, state.filter)
+});
 
-// 将对应的action映射到props
-const mapDispatchToProps = dispatch => ({
-    toggleTodo: id => dispatch(toggleTodo(id))
-})
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TodoList)
+const ConnectTodoList = connect(mapStateToProps)(TodoList);
+
+export default ConnectTodoList;
