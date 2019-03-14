@@ -26,18 +26,24 @@ export const doSetFilter = filterType => ({
 });
 
 
-export const doShowNotification = (text, id) => {
-    return {
-        type: NOTIFICATION_SHOW,
-        text,
-        id
-    }
-}
+export const doShowNotification = (text, id) => ({
+    type: NOTIFICATION_SHOW,
+    text,
+    id
+});
 
-export const doHideNotification = id => {
-    return {
-        type: NOTIFICATION_HIDE,
-        id
-    }
-}
+// 高阶函数 返回一个新的函数，进行派发
+export const doAddTodoWithNotification = (id, name) => dispatch => {
+    // 执行action添加todo
+    dispatch(doAddTodo(id, name));
 
+    // 1s后指定action隐藏通知
+    setTimeout(function () {
+        dispatch(doHideNotification(id));
+    }, 1000);
+};
+
+export const doHideNotification = id => ({
+    type: NOTIFICATION_HIDE,
+    id
+});

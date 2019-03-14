@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-const Notifications = ({notification}) =>
+const Notifications = ({notifications}) =>
     <div>
-        {notification.map(note =>
+        {notifications.map(note =>
             <div key={note}>{note}</div>
         )}
     </div>

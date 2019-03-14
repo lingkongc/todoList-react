@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import TodoCreate from '../components/TodoCreate';
-import {doAddTodo} from '../actions';
+import {doAddTodoWithNotification} from '../actions';
 import uuid from 'uuid/v4';
 
 const mapDispatchToProps = (dispatch) => ({
-    onAddTodo: name => dispatch(doAddTodo(uuid(), name))
+    onAddTodo: name => dispatch(doAddTodoWithNotification(uuid(), name))
 })
 
 const ConnectedTodoCreate = connect(null, mapDispatchToProps)(TodoCreate);
