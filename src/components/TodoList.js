@@ -1,24 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Todo from './Todo'
+import React from 'react';
+import ConnectedTodoItem from '../containers/ConnectedTodoItem';
 
-const TodoList = ({ todos, toggleTodo }) => (
-    <ul>
-        {todos.map(todo => (
-            <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-        ))}
-    </ul>
-)
+const TodoList = ({todos}) => (
+    <div>
+        {todos.map(todo =>
+            <ConnectedTodoItem
+                key={todo.id}
+                todo={todo}
+            />
+        )}
+    </div>
+);
 
-TodoList.propTypes = {
-    todos: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            completed: PropTypes.bool.isRequired,
-            text: PropTypes.string.isRequired
-        }).isRequired
-    ).isRequired,
-    toggleTodo: PropTypes.func.isRequired
-}
 
-export default TodoList
+export default TodoList;

@@ -1,14 +1,16 @@
-import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import React from 'react';
+import ConnectedTodoList from '../containers/ConnectedTodoList';
+import ConnectedTodoCreate from '../containers/ConnectedTodoCreate';
+import ConnectedFilter from '../containers/ConnectedFilter';
+import ConnectedNotifications from '../containers/ConnectedNotifications'
 
 const App = () => (
     <div>
-        <AddTodo />
-        <VisibleTodoList />
-        <Footer />
+        <ConnectedNotifications/>
+        <ConnectedTodoCreate/>
+        <ConnectedTodoList/>
+        <ConnectedFilter/>
     </div>
-)
+);
 
-export default App
+export default App;

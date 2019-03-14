@@ -1,8 +1,12 @@
 import {combineReducers} from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
+import todoReducer from './todoReducer'
+import filterReducer from './filterReducer'
+import notificationReducer from "./notificationReducer";
 
-export default combineReducers({
-    todos,
-    visibilityFilter
-})
+const rootReducer = combineReducers({
+    todoState: todoReducer,
+    filterState: filterReducer,
+    notificationState: notificationReducer
+});
+
+export default rootReducer;
