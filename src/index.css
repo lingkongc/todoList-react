@@ -23,3 +23,55 @@
 #root input+button {
     background-color: #ddd;
 }
+
+
+.todo-item {
+    margin: 0.5rem 0;
+}
+
+.todo-item span {
+    padding: 0.25rem;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.todo-item button {
+    box-sizing: border-box;
+    padding: 0.25rem;
+    color: #444;
+    border: 2px solid #ddd;
+    background: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.todo-item button:hover {
+    background-color: tomato;
+    color: white;
+}
+
+.message {
+    margin-bottom: 1rem;
+    background-color: tomato;
+    color: white;
+}
+
+/* 
+    筛选按钮
+*/
+
+.button-filter {
+    padding: 0.3rem 0.5rem;
+    margin: 1rem 0.5rem 0 0.5rem;
+    background-color: teal;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+.button-filter:hover {
+    background-color: #007070;
+}

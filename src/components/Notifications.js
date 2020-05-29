@@ -1,10 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-const Notifications = ({notifications}) =>
-    <div>
-        {notifications.map(note =>
-            <div key={note}>{note}</div>
-        )}
-    </div>
+// 通知组件
 
-export default Notifications;
+const Notifications = ({ notifications }) => (
+  <div>
+    {notifications.map((note) => (
+      <div className="message" key={note}>
+        {note}
+      </div>
+    ))}
+  </div>
+)
+
+export default Notifications
