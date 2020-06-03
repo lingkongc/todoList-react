@@ -53,6 +53,7 @@
 }
 
 .message {
+    padding: 0.5rem 0.25rem;
     margin-bottom: 1rem;
     background-color: tomato;
     color: white;
