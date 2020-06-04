@@ -76,3 +76,12 @@
 .button-filter:hover {
     background-color: #007070;
 }
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 2px solid #fff;
+}
