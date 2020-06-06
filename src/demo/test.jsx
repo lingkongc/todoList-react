@@ -38,6 +38,9 @@ class Dog extends React.Component {
 
   handleLinkClick(e) {
     e.preventDefault()
+    alert('躲猫猫')
+    // 阻止事件冒泡
+    e.stopPropagation()
   }
 
   tick() {
@@ -66,6 +69,7 @@ class Dog extends React.Component {
         </a>
         <p>{this.props.name}</p>
         <p>It is {state.date.toLocaleTimeString()}.</p>
+        <p>我有点烦躁</p>
       </div>
     )
   }
